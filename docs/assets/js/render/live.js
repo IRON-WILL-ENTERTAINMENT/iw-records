@@ -8,7 +8,9 @@ export function renderLive() {
         <li>
           <span class="live-date">${live.date}</span>
           <span class="live-title">${live.title}</span>
+          <span class="live-place">${live.place}</span>
           <span class="live-detail">${live.detail}</span>
+          <span class="live-ticketUrl">${live.ticketUrl}</span>
         </li>
       `
     )
