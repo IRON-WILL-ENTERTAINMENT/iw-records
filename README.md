@@ -29,3 +29,13 @@ http://localhost:8080
 ```bash
 docker compose down
 ```
+
+# 更新作業
+
+更新作業を行う場合は以下のファイルを編集すること：
+
+- ライブ追加 → docs/data/live.js
+- SNS追加 → docs/data/contact.js
+- YouTube差し替え → docs/data/video.js
+- 背景画像差し替え → docs/data/hero.js
+- 文言修正 → だいたい docs/data/\*
