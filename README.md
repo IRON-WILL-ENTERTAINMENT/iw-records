@@ -13,11 +13,19 @@
 # 開発用ローカルサーバー
 
 起動コマンド：
+
 ```bash
 docker compose up --build
 ```
 
+Web ブラウザで以下のアドレスにアクセスする：
+
+```
+http://localhost:8080
+```
+
 終了コマンド：
-```bash 
+
+```bash
 docker compose down
 ```
