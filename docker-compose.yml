@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: website-iwe
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docs:/usr/share/nginx/html:ro
+    restart: unless-stopped
