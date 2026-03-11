@@ -20,6 +20,26 @@ h2 {
   margin-top: 10px;
 }
 
+.hero-live-banner {
+  margin-top: 32px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.hero-live-banner:hover {
+  transform: translateY(-4px);
+  opacity: 0.92;
+}
+
+.hero-live-banner img {
+  max-height: calc(100vh - 260px);
+  max-width: 90vw;
+
+  width: auto;
+  height: auto;
+}
+
 .btn {
   display: inline-block;
   background-color: var(--accent-color);

@@ -23,6 +23,22 @@ section {
   padding: 40px 20px;
 }
 
+#hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-copy {
+  max-width: 900px;
+  width: 100%;
+}
+
 footer {
   text-align: center;
   padding: 30px 20px;
