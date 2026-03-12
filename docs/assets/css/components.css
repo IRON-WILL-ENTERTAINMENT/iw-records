@@ -1,9 +1,14 @@
+/* components.css - Styles for hero section and common components */
+
+/* Common Components */
+/* h1 is used for the main title in the hero section */
 h1 {
   font-size: 48px;
   margin: 0;
   letter-spacing: 5px;
 }
 
+/* h2 is used for section titles */
 h2 {
   color: var(--accent-color);
   font-size: 28px;
@@ -13,6 +18,7 @@ h2 {
   padding-bottom: 10px;
 }
 
+/* Hero Section */
 #hero p {
   color: var(--accent-color);
   font-weight: bold;
@@ -40,6 +46,108 @@ h2 {
   height: auto;
 }
 
+.hero-copy {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.hero-carousel {
+  width: 100vw;
+  margin-top: 32px;
+  margin-left: calc(50% - 50vw);
+}
+
+.hero-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  padding-inline: clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.hero-carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.hero-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  will-change: transform;
+}
+
+.hero-slide {
+  flex: 0 0 56%;
+  display: flex;
+  justify-content: center;
+  opacity: 0.42;
+  transform: scale(0.84);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  overflow: visible;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-slide-link {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero-slide img {
+  display: block;
+  width: 100%;
+  max-height: 52vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.hero-slide-placeholder {
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-placeholder-text {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    margin-top: 24px;
+  }
+
+  .hero-carousel-viewport {
+    padding-inline: 12px;
+  }
+
+  .hero-slide {
+    flex: 0 0 78%;
+  }
+
+  .hero-slide img {
+    max-height: 38vh;
+  }
+}
+
+/* buttons */
 .btn {
   display: inline-block;
   background-color: var(--accent-color);
@@ -61,6 +169,7 @@ h2 {
   margin-top: 20px;
 }
 
+/* Video Container */
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -76,6 +185,7 @@ h2 {
   height: 100%;
 }
 
+/* Live List */
 .live-list {
   list-style: none;
   padding: 0;
@@ -96,10 +206,12 @@ h2 {
   font-size: 18px;
 }
 
+/* Bio Section */
 .bio-text {
   text-align: left;
 }
 
+/* SNS Links */
 .sns-links {
   margin-top: 40px;
 }
