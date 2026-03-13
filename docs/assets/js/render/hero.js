@@ -57,10 +57,14 @@ function initHeroCarousel() {
   let activeIndex = 0;
   let startX = 0;
   let currentX = 0;
-  let isDragging = false;
-  let isPointerDown = false;
   let dragOffset = 0;
-  let pointerId = null;
+
+  let isPointerDown = false;
+  let isDragging = false;
+  let suppressClick = false;
+
+  const DRAG_START_THRESHOLD = 18;
+  const SLIDE_CHANGE_THRESHOLD = 60;
 
   function mod(n, m) {
     return ((n % m) + m) % m;
@@ -71,11 +75,13 @@ function initHeroCarousel() {
     const activeSlide = slides[activeIndex];
     const slideLeft = activeSlide.offsetLeft;
     const slideWidth = activeSlide.offsetWidth;
+
     return slideLeft - viewportWidth / 2 + slideWidth / 2;
   }
 
   function update(applyTransition = true) {
     const target = getActiveTranslate();
+
     track.style.transition = applyTransition ? "transform 0.35s ease" : "none";
     track.style.transform = `translateX(${-target + dragOffset}px)`;
 
@@ -101,16 +107,13 @@ function initHeroCarousel() {
 
     isPointerDown = true;
     isDragging = false;
+    suppressClick = false;
+
     startX = event.clientX;
     currentX = event.clientX;
     dragOffset = 0;
-    pointerId = event.pointerId;
 
     track.style.transition = "none";
-
-    if (viewport.setPointerCapture) {
-      viewport.setPointerCapture(pointerId);
-    }
   }
 
   function onPointerMove(event) {
@@ -119,36 +122,46 @@ function initHeroCarousel() {
     currentX = event.clientX;
     dragOffset = currentX - startX;
 
-    if (Math.abs(dragOffset) > 6) {
+    if (!isDragging && Math.abs(dragOffset) > DRAG_START_THRESHOLD) {
       isDragging = true;
+      suppressClick = true;
     }
 
-    update(false);
+    if (isDragging) {
+      update(false);
+    }
   }
 
   function onPointerUp() {
     if (!isPointerDown) return;
 
     isPointerDown = false;
-    const threshold = 60;
 
-    if (dragOffset <= -threshold) {
-      moveNext();
-    } else if (dragOffset >= threshold) {
-      movePrev();
+    if (isDragging) {
+      if (dragOffset <= -SLIDE_CHANGE_THRESHOLD) {
+        moveNext();
+      } else if (dragOffset >= SLIDE_CHANGE_THRESHOLD) {
+        movePrev();
+      } else {
+        dragOffset = 0;
+        update(true);
+      }
+
+      setTimeout(() => {
+        suppressClick = false;
+      }, 0);
     } else {
       dragOffset = 0;
       update(true);
+      suppressClick = false;
     }
 
-    requestAnimationFrame(() => {
-      isDragging = false;
-    });
+    isDragging = false;
   }
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
-      if (isDragging) {
+      if (suppressClick) {
         event.preventDefault();
         event.stopPropagation();
       }
@@ -160,8 +173,6 @@ function initHeroCarousel() {
   });
 
   viewport.addEventListener("pointerdown", onPointerDown);
-  track.addEventListener("pointerdown", onPointerDown);
-
   window.addEventListener("pointermove", onPointerMove);
   window.addEventListener("pointerup", onPointerUp);
   window.addEventListener("pointercancel", onPointerUp);
