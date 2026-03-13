@@ -6,7 +6,7 @@ export const heroData = {
     {
       imageUrl: "./assets/img/common/live-banner-20260414-osaka.png",
       alt: "最新ライブ告知",
-      href: "#live"
+      href: "./pages/live-20260414-osaka.html"
     },
     {
       imageUrl: "./assets/img/common/live-banner-202609xx-tokyo.png",

@@ -1,0 +1,135 @@
+.live-lp-page {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  background-color: #111111;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.live-lp-bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.live-lp-bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+  z-index: -1;
+}
+
+.live-lp {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.live-lp-inner {
+  width: min(92vw, 720px);
+  margin: 0 auto;
+}
+
+.live-lp-logo {
+  font-size: 12px;
+  color: #888888;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+.live-lp-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.live-lp-info {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.live-lp-date {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  color: #ff0050;
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.live-lp-details {
+  font-size: 14px;
+  color: #dddddd;
+  margin-top: 8px;
+}
+
+.live-lp-price {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 8px;
+  color: #ffffff;
+}
+
+.live-lp-button {
+  background-color: #ff0050;
+  box-shadow: 0 4px 20px rgba(255, 0, 80, 0.4);
+  width: 100%;
+  max-width: 320px;
+  border-radius: 30px;
+}
+
+.live-lp-button:hover,
+.live-lp-button:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
+.live-lp-note {
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-top: 16px;
+}
+
+.live-lp-back {
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+.live-lp-back a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.live-lp-back a:hover {
+  color: #ff0050;
+}
+
+@media (max-width: 640px) {
+  .live-lp {
+    align-items: center;
+    padding: 24px 16px;
+  }
+
+  .live-lp-info {
+    margin-bottom: 32px;
+  }
+
+  .live-lp-button {
+    max-width: 100%;
+  }
+}
