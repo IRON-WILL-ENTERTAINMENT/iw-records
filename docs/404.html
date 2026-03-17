@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 | IRON WILL RECORDS</title>
+
+<link rel="stylesheet" href="./assets/css/base.css">
+<link rel="stylesheet" href="./assets/css/layout.css">
+<link rel="stylesheet" href="./assets/css/components.css">
+
+<style>
+.error-container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+}
+
+.error-code{
+  font-size:120px;
+  color:var(--accent-color);
+  margin:0;
+  letter-spacing:10px;
+}
+
+.error-message{
+  font-size:20px;
+  margin:20px 0 40px 0;
+  color:#ccc;
+}
+
+.home-link{
+  display:inline-block;
+  padding:14px 28px;
+  background:var(--accent-color);
+  color:#fff;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.home-link:hover{
+  background:#ff3333;
+  transform:scale(1.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="error-container">
+
+<h1 class="error-code">404</h1>
+
+<p class="error-message">
+ページが見つかりません。<br>
+URLが間違っているか、ページが削除された可能性があります。
+</p>
+
+<a href="/" class="home-link">
+TOP PAGE
+</a>
+
+</div>
+
+</body>
+</html>
